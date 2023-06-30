@@ -11,5 +11,5 @@ npm install
 ```
 Installing assets
 ```sh
-npm run dev
+npm run watch
 ```
