@@ -34,8 +34,12 @@ class PostCrudController extends AbstractCrudController
                     ->setBasePath(self::POSTS_BASE_PATH)
                     ->setUploadDir(self::POSTS_UPLOAD_DIR),
 
-                DateTimeField::new('createdAt')->hideOnForm(),
-                DateTimeField::new('updatedAt')->hideOnForm(),
+                DateTimeField::new('createdAt')
+                ->hideOnForm()
+                ->setTimezone('Europe/Paris'),
+                DateTimeField::new('updatedAt')
+                ->hideOnForm()
+                ->setTimezone('Europe/Paris'),
 
                 SlugField::new('slug')
                 ->setTargetFieldName('title')
@@ -43,25 +47,20 @@ class PostCrudController extends AbstractCrudController
                 
             ];
         }
-
         private $slugger;
         public function __construct(SluggerInterface $slugger)
         {
             $this->slugger = $slugger;
         }
-
         public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
         {
             if ($entityInstance instanceof Category) return;
     
             $entityInstance->setCreatedAt(new \DateTimeImmutable);
 
-            // Générer le slug à partir du titre du post
             $slug = $this->slugger->slug($entityInstance->getTitle())->lower();
             $entityInstance->setSlug($slug);        
     
             parent::persistEntity($entityManager, $entityInstance);
         }
-
-        
 }

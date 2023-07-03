@@ -21,7 +21,6 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        // return parent::index();
         $url = $this->adminUrlGenerator
         ->setController(PostCrudController::class)
         ->generateUrl();
