@@ -26,7 +26,9 @@ class PostCrudController extends AbstractCrudController
         public function configureFields(string $pageName): iterable
         {
             return [
-                IdField::new('id')->hideOnForm(),
+                IdField::new('id')
+                ->hideOnForm()
+                ->hideOnIndex(),
                 BooleanField::new('visible', 'Visible'),
                 TextField::new('title', 'Titre'),
                 TextField::new('description', 'Description'),
@@ -54,7 +56,8 @@ class PostCrudController extends AbstractCrudController
 
                 SlugField::new('slug')
                 ->setTargetFieldName('title')
-                ->hideOnForm(),
+                ->hideOnForm()
+                ->hideOnIndex(),
             ];
         }
 
