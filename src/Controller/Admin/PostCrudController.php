@@ -55,23 +55,38 @@ class PostCrudController extends AbstractCrudController
                 SlugField::new('slug')
                 ->setTargetFieldName('title')
                 ->hideOnForm(),
-                
             ];
         }
+
+
         private $slugger;
         public function __construct(SluggerInterface $slugger)
         {
             $this->slugger = $slugger;
         }
+        
         public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
         {
-            if ($entityInstance instanceof Category) return;
-    
+            if (!$entityInstance instanceof Post) {
+                return;
+            }
+        
             $entityInstance->setCreatedAt(new \DateTimeImmutable);
-
+        
             $slug = $this->slugger->slug($entityInstance->getTitle())->lower();
-            $entityInstance->setSlug($slug);        
-    
+            $entityInstance->setSlug($slug);
+        
             parent::persistEntity($entityManager, $entityInstance);
+        }
+        
+        public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
+        {
+            if (!$entityInstance instanceof Post) {
+                return;
+            }
+        
+            $entityInstance->setUpdatedAt(new \DateTimeImmutable);
+        
+            parent::updateEntity($entityManager, $entityInstance);
         }
 }
