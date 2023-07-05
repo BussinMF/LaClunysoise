@@ -7,6 +7,9 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 }
 
 Encore
+
+    // enables Sass/SCSS support
+    .enableSassLoader()
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
     // public path used by the web server to access the output path
@@ -52,9 +55,6 @@ Encore
         config.useBuiltIns = 'usage';
         config.corejs = '3.23';
     })
-
-    // enables Sass/SCSS support
-    //.enableSassLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
