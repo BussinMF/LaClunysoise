@@ -6,12 +6,12 @@
     <section class="row">
         <div class="col-12">
 
-            {% for item in post %}
+            {% for posts in post %}
 
-            {{ item.title }}
-            {{ item.description }}
-            {{ item.content }}
-            {{ item.mediaUrl }}
+            {{ posts.title }}
+            {{ posts.description }}
+            {{ posts.content }}
+            {{ posts.mediaUrl }}
 
 
             {% endfor %}
