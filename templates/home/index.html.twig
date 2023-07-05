@@ -8,10 +8,10 @@
 
             {% for posts in post %}
 
-            {{ posts.title }}
-            {{ posts.description }}
-            {{ posts.content }}
-            {{ posts.mediaUrl }}
+            <h1>{{ posts.title }}</h1>
+            {{ posts.description}}
+            {{ posts.content | striptags }}
+           <img src="/upload/images/{{ asset(posts.mediaUrl) }}"/>
 
 
             {% endfor %}
