@@ -94,4 +94,21 @@ class PostCrudController extends AbstractCrudController
         
             parent::updateEntity($entityManager, $entityInstance);
         }
+
+        public function deleteEntity(EntityManagerInterface $entityManager, $entityInstance): void
+        {
+            if (!$entityInstance instanceof Post) {
+                return;
+            }
+
+            $imageName = $entityInstance->getMediaUrl();
+            if ($imageName) {
+                $imagePath = $this->getParameter('kernel.project_dir'). '/public/upload/images/'. $imageName;
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+            }
+
+            parent::deleteEntity($entityManager, $entityInstance);
+        }
 }
