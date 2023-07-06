@@ -3,17 +3,15 @@
 ⚙️ Installation
 --------------
 
-Install the PHP dependencies and JS dependencies.
+Install bundles / modules.
 ```sh
 composer install
 ```
-
-Install modules
 ```sh
 npm install
 ```
 
-Compile Webpack in real time
+Compile webpack in real time
 ```sh
 npm run watch
 ```
@@ -31,18 +29,30 @@ symfony console make:migration
 ```sh
 symfony console doctrine:migrations:migrate
 ```
-```sh
-symfony console doctrine:schema:update --force
-```
 
 Controller
 ```sh
 symfony console make:controller
 ```
 
-Admin sql
+Authentication
+```sh
+symfony console make:user Admin
+```
+
+Password Hash
+```sh
+symfony console security:hash-password
+```
+
+SQL Req. to create/set the user
 ```sh
 INSERT INTO admin (id, username, roles, password) 
 VALUES (null, 'admin', '["ROLE_ADMIN"]', 
 '-- PasswordHash with \ to escape $ --');
+```
+
+Auth page creation
+```sh
+symfony console make:auth
 ```
