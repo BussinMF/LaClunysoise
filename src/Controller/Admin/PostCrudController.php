@@ -37,7 +37,8 @@ class PostCrudController extends AbstractCrudController
 
                 ImageField::new('mediaUrl')
                     ->setBasePath(self::POSTS_BASE_PATH)
-                    ->setUploadDir(self::POSTS_UPLOAD_DIR),
+                    ->setUploadDir(self::POSTS_UPLOAD_DIR)
+                    ->setUploadedFileNamePattern('[slug]-[uuid].[extension]'),
 
                 DateTimeField::new('createdAt', 'Date/Heure de Création')
                 ->hideOnForm()
