@@ -1,0 +1,122 @@
+#about-desc {
+    max-width: 80vw !important;
+    border-radius: 20px !important;
+}
+
+.titles-top {
+    position: absolute;
+    z-index: 1000;
+    top: 9%;
+    left: 50%;
+    transform: translateX(-55%);
+}
+
+small {
+    background-color: hsla(0, 0%, 100%, 0.55)!important;
+}
+
+.pages-section {
+    padding-top:200px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container-fluid {
+    width: 80vw!important;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, 0.70);
+    width: 100%;
+    height: auto !important;
+    border-radius: 20px !important;
+}
+
+.img-left {
+    max-width: 1000px !important;
+    max-height: 800px !important;
+    float: left;
+    margin: 10px 20px 10px 0;
+}
+
+.img-right {
+    max-width: 1000px !important;
+    max-height: 800px !important;
+    float: right;
+    margin: 10px 20px 10px 0;
+}
+
+.sub-content {
+    height: 100%;
+    padding: 20px 20px !important;
+}
+
+.sub-content p {
+    text-align: left !important;
+}
+
+.about-i {
+    color: #0059C6!important;
+    font-size: 3rem !important;
+}
+
+.aboutText {
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 1200px) { 
+    .titlesTop {
+        top: 19%;
+    }
+
+    .subTitles {
+        padding-top: 200px;
+    }
+
+    .titles-top {
+        top: 19%;
+    }
+
+    .sub-titles {
+        padding-top: 200px;
+    }
+
+    .container-fluid {
+        width: 90vw!important;
+    }
+
+    // .sub-content img {
+    //     height: 50% !important;
+    //     margin: 0 0 15px 0;
+    // }
+    .sub-content p {
+        text-align: center !important;
+    }
+
+    .sub-content h1 {
+        padding-bottom: 0!important;
+    }
+
+    .img-left {
+        max-width: 80vw !important;
+        height: auto !important;
+        float: left;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    .img-right {
+        max-width: 80vw !important;
+        height: auto !important;
+        float: right;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .pages-section {
+        margin-top:410px;
+    }
+    
+}
